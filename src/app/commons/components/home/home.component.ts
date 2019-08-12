@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getVacancies();
   }
 
   search(searchForm: NgForm) {
@@ -25,6 +26,19 @@ export class HomeComponent implements OnInit {
     search = search ? search : 'allvacancies';
     search = search.trim();
     this.router.navigate(['/search-vacancy', search]);
+  }
+
+  getVacancies() {
+    // this._searchVacancyService.getVacancies().subscribe(
+    //   res => {
+    //     this.countVacancies = res.count;
+    //     this.vacancies = res.data;
+    //   },
+    //   err => {
+    //     console.log(err);
+    //   },
+    //   () => this.isLoading = false
+    // );
   }
 
 }
