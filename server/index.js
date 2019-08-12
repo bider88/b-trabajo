@@ -25,7 +25,11 @@ app.use(cors({origin: 'http://localhost:4200'}));
 app.use('/api', require('./routes'));
 
 // Db connection
-mongoose.connect(process.env.URLDB, (err, res) => {
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+
+mongoose.connect(process.env.URLDB, { useNewUrlParser: true }, (err, res) => {
     if (err) throw err;
 
     console.log('Online database');

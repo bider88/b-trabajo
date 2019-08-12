@@ -1,1 +1,62 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/bootstrap";
+
+body {
+  padding-top: 56px;
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 90% !important;
+  color: #494949 !important;
+}
+
+.btn-fill {
+  width: 100%;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.container-fluid {
+  min-height: 90vh;
+}
+
+.container {
+  min-height: 90vh;
+}
+
+@include media-breakpoint-down(md) {
+  .hide-down-md {
+    display: none !important;
+  }
+
+  .show-down-md {
+    display: inline-block !important;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .hide-up-md {
+    display: none !important;
+  }
+
+  .show-up-md {
+    display: inline-block !important;
+  }
+}
+
+@media (min-width: 361px) and (max-width: 576px) {
+  body, .btn {
+      font-size: 80%!important;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  body, .btn {
+      font-size: 75%!important;
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+

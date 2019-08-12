@@ -2,12 +2,15 @@
   "name": "b-trabajo",
   "version": "0.0.0",
   "scripts": {
+    "dev": "nodemon server & ng serve",
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server",
     "build": "ng build",
+    "build:prod": "ng build --aot --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "npm run build:prod"
   },
   "private": true,
   "dependencies": {
