@@ -1,0 +1,30 @@
+<div class="mb-0 jumbotron text-center">
+  <h1 class="animated fadeInUp">B·trabajo</h1>
+
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-7 col-lg-6 col-xl-5 mx-auto mb-2">
+      <div class="card bg-card animated fadeIn">
+        <div class="card-body">
+          <h5 class="animated fadeIn">Buscar vacantes</h5>
+          <form class="d-flex flex-row" #searchForm="ngForm" (ngSubmit)="search(searchForm)">
+            <div class="form-group p-2 flex-grow-1">
+              <input type="search" class="form-control" [(ngModel)]="searchText" name="search" id="search">
+            </div>
+            <button type="submit" class="btn btn-outline-light ml-1 px-3">Buscar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="animated fadeIn">Dejando de lado el mundo empresarial, conectamos a más personas.</p>
+</div>
+
+<div class="container">
+  <h3 class="text-center my-5 text-secondary">Estas son nuestras vacantes más recientes</h3>
+  <div class="row">
+    <div class="col">
+
+    </div>
+  </div>
+</div>

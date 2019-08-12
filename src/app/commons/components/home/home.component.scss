@@ -1,0 +1,18 @@
+$color-info: #00A1B8;
+
+.jumbotron {
+  background: #4946FF;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #4946FF, #5b5bff, #9393ff);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #4946FF, #5b5bff, #9393ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+  border-radius: 0;
+}
+
+.bg-card {
+  background: #38475f;  /* fallback for old browsers */
+}
+
+.btn {
+  margin-top: 8px!important;
+  height: 38px!important;
+}
