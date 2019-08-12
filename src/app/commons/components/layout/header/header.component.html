@@ -1,0 +1,38 @@
+<nav class="navbar fixed-top navbar-expand-md navbar-dark" [ngStyle]="{ 'background-color': isRecluiter() ? '#38475f' : '#4946FF'}">
+
+  <a class="navbar-brand" [routerLink]="['/']">B·Trabajo</a>
+
+  <ul class="navbar-nav mr-auto d-flex flex-row">
+    <!-- <li routerLinkActive="active" class="nav-item mr-2" *ngIf="showMenuRecluiter()"> -->
+    <li routerLinkActive="active" class="nav-item mr-2">
+      <a class="nav-link" [routerLink]="['/recruiter']">Ofertante</a>
+    </li>
+  </ul>
+
+  <div>
+    <a class="btn btn-outline-light hide-down-md show-up-md" routerLink="login" *ngIf="!isLoggedIn">
+      <i class="fas fa-sign-in-alt"></i> Ingresar
+    </a>
+
+    <a class="btn btn-outline-light hide-up-md show-down-md" routerLink="login" *ngIf="!isLoggedIn">
+      <i class="fas fa-sign-in-alt"></i>
+    </a>
+
+    <a *ngIf="isLoggedIn" class="nav-link dropdown-toggle no-padding text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">
+      <img src="{{ urlImageProfile }}" class="img-fluid mr-1 rounded-circle avatar"/>
+      <span class="nav-item hide-down-md show-up-md">{{ firstName }}</span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-right animated fadeIn" aria-labelledby="navbarDropdown">
+      <small class="dropdown-item text-muted hide-up-md show-down-md">{{ firstName }}</small>
+      <a class="dropdown-item hide-up-md show-down-md" routerLink="">Inicio</a>
+      <a class="dropdown-item" [routerLink]="['profile', id]" *ngIf="!showMenuRecluiter()">Mi perfil</a>
+      <a class="dropdown-item" [routerLink]="['r-profile', id]" *ngIf="showMenuRecluiter()">Mi perfil</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#" (click)="logout()">Salir</a>
+      <a class="dropdown-item" href="#">Salir</a>
+    </div>
+
+  </div>
+</nav>
