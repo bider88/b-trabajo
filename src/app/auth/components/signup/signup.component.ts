@@ -30,7 +30,7 @@ export class SignupComponent implements OnInit {
       password: [null, [Validators.required, Validators.minLength(6)]]
     });
 
-    this.urlLogin = this.isRecruiter ? '/login-recruiter' : '/login';
+    this.urlLogin = this.isRecruiter ? '/auth/login-recruiter' : '/auth/login';
   }
 
   signUp() {
