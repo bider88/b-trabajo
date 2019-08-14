@@ -1,5 +1,6 @@
-import { User } from '../components/commons/signup/User';
+
 import { Salary } from './Salary';
+import { UserClass } from './user.class';
 
 export interface Vacancy {
 
@@ -14,7 +15,7 @@ export interface Vacancy {
   phone?: string;
   expire?: Date;
   status?: { open: boolean, description?: string, another?: string };
-  user?: User;
+  user?: UserClass;
   postulate?: any[];
   views?: number;
   _id?: string;
