@@ -1,1 +1,60 @@
-<p>signup works!</p>
+<div class="col-md-12">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="mb-0 text-center">
+            Registrate<span *ngIf="isRecruiter"> como Ofertante</span>.
+          </h3>
+        </div>
+        <div class="card-body">
+          <p *ngIf="isRecruiter">
+            Coloca las vancantes que necesites sin tantas complicaciones, porque lo queremos es que contactes al personal que necesites y ellos te vean lo más pronto.
+          </p>
+          <p *ngIf="!isRecruiter">
+            Para ver la vacantes que tenemos para ti, tan solo tienes que registrarte en la plataforma, ¡es muy fácil!. Sólo ingresa tu correo electrónico y contraseña.
+          </p>
+          <form [formGroup]="signupForm" (ngSubmit)="signUp()">
+            <div class="form-group">
+              <label for="firstName">Nombres <small>*</small></label>
+              <input type="firstName" required class="form-control form-control" formControlName="firstName" id="firstName" [ngClass]="{ 'is-invalid' : showErrorsFirstName(), 'is-valid' : signupForm.controls['firstName'].valid }">
+              <div *ngIf="showErrorsFirstName()">
+                <small *ngIf="signupForm.controls['firstName'].errors.required" id="firstName" class="form-text text-danger animated fadeInDown">Ingrese nombre completo.</small>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Apellidos <small>*</small></label>
+              <input type="lastName" required class="form-control form-control" formControlName="lastName" id="lastName" [ngClass]="{ 'is-invalid' : showErrorsLastName(), 'is-valid' : signupForm.controls['lastName'].valid }">
+              <div *ngIf="showErrorsLastName()">
+                <small *ngIf="signupForm.controls['lastName'].errors.required" id="lastName" class="form-text text-danger animated fadeInDown">Ingrese apellidos completos.</small>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Correo electrónico <small>*</small></label>
+              <input type="email" required class="form-control form-control" formControlName="email" id="email" [ngClass]="{ 'is-invalid' : showErrorsEmail(), 'is-valid' : signupForm.controls['email'].valid }">
+              <div *ngIf="showErrorsEmail()">
+                <small *ngIf="signupForm.controls['email'].errors.required" id="email" class="form-text text-danger animated fadeInDown">Ingrese correo electrónico.</small>
+                <small *ngIf="signupForm.controls['email'].errors.pattern" id="email" class="form-text text-danger animated fadeInDown">Correo electrónico no válido.</small>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password">Contraseña <small>*</small></label>
+              <input type="password" required class="form-control form-control" formControlName="password" id="password" [ngClass]="{ 'is-invalid' : showErrorsPassword(), 'is-valid' : signupForm.controls['password'].valid }">
+              <div *ngIf="showErrorsPassword()">
+                <small *ngIf="signupForm.controls['password'].errors.required" id="password" class="form-text text-danger animated fadeInDown">Ingrese contraseña.</small>
+                <small *ngIf="signupForm.controls['password'].errors.minlength" id="password" class="form-text text-danger animated fadeInDown">Longitud mínima de 6 caracteres.</small>
+              </div>
+            </div>
+            <sk-pulse *ngIf="loading"></sk-pulse>
+            <button type="submit" *ngIf="!loading" class="btn btn-success btn-md btn-fill mb-4" id="btnLogin">Registrarse</button>
+            <p class="text-center">
+              <label>¿Ya tienes cuenta?
+                <a routerLink="{{ urlLogin }}">Inicia sesión<span *ngIf="isRecruiter"> como Ofertante</span>.</a>
+              </label>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
