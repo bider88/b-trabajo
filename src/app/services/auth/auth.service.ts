@@ -67,7 +67,7 @@ export class AuthService {
     if (this.currentUser.role === 'USER_ROLE') {
       this.router.navigateByUrl('/');
     } else if (this.currentUser.role === 'RECRUITER_ROLE') {
-      this.router.navigateByUrl('/recruiter');
+      this.router.navigateByUrl('/recruiter/home');
     }
     this.afterAuth.onCompletedLogin.emit(true);
   }
