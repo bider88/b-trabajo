@@ -25,7 +25,7 @@ export class AuthService {
       const { firstName, lastName, createdAt, email, img, role, _id } = user;
       this.currentUser = new UserClass(firstName, lastName, createdAt, email, null, img, role, _id);
     }
-   }
+  }
 
   emailLogin(credentials: CredentialClass) {
     return this.httpClient.post<any>(`${this.apirUrl}/auth/login`, credentials);
@@ -38,14 +38,14 @@ export class AuthService {
   getNewToken(id: string) {
     const httpOptions = {
       headers: new HttpHeaders({
-        'token': localStorage.getItem('token')
+        token: localStorage.getItem('token')
       })
     };
     return this.httpClient.get<any>(`${this.apirUrl}/auth/user/${id}`, httpOptions).subscribe(
       res => {
         const { firstName, lastName, createdAt, email, img, role, _id } = res.data;
         const token = res.token;
-        const user = new UserClass(firstName, lastName, createdAt, email, '', img, role, _id );
+        const user = new UserClass(firstName, lastName, createdAt, email, '', img, role, _id);
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify({ user }));
         this.currentUser = user;
